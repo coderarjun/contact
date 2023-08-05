@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Custom styles for SweetAlert */
+        .swal2-popup {
+            font-size: 1.6rem;
+        }
+        .swal2-title {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+        .swal2-content {
+            font-size: 1.8rem;
+        }
+    </style>
+</head>
+<body>
+    <form action="contact.php" method="post" id="contact-form">
+        <input type="text" name="name" placeholder="name"><br>
+        <input type="email" name="email" placeholder="email"><br>
+        <input type="text" name="subject" placeholder="subject"><br>
+        <input type="text" name="message" placeholder="message"><br>
+        <button type="submit" id="submit-button">Submit</button>
+    </form>
+    <script>
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Show SweetAlert prompt
+            Swal.fire({
+                icon: 'success',
+                title: 'Message Sent!',
+                text: 'Your message has been successfully sent.',
+                showConfirmButton: false,
+                timer: 3000
+            });
+
+            // Submit the form after a delay
+            setTimeout(function() {
+                event.target.submit();
+            }, 3100);
+        });
+    </script>
+</body>
+</html>
